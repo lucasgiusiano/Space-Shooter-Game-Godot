@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://xyfvvqwrgya4"]
 
 [ext_resource type="Script" uid="uid://u86gbshwhtup" path="res://scripts/EnemieShip.cs" id="1_1vpay"]
+[ext_resource type="PackedScene" uid="uid://dmxrmpg3wwy8h" path="res://scenes/EnemieBullet.tscn" id="2_6hcvx"]
 [ext_resource type="PackedScene" uid="uid://c7gy1i1dy3lj6" path="res://scenes/Explotion.tscn" id="2_6ihsl"]
 
 [node name="EnemieShip" type="CharacterBody2D" unique_id=1156344873]
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
 script = ExtResource("1_1vpay")
+BulletScene = ExtResource("2_6hcvx")
 ExplosionScene = ExtResource("2_6ihsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=766267343]

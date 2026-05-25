@@ -2,14 +2,19 @@ using Godot;
 
 public partial class PlayerShip : CharacterBody2D
 {
+	[Signal]
+	public delegate void PlayerHealthChangedEventHandler(int health);
+	[Signal]
+	public delegate void PlayerDiedEventHandler();
+	[Export]
+	public PackedScene BulletScene { get; set; }
 	[Export]
 	public PackedScene ExplosionScene { get; set; }
 	[Export]
 	public int Speed { get; set; } = 400;
 	[Export]
 	public double inertia { get; set; } = 2;
-	[Export]
-	public PackedScene BulletScene { get; set; }
+
 	[Export]
 	public int Health { get; set; } = 3;
 
@@ -45,8 +50,12 @@ public partial class PlayerShip : CharacterBody2D
 	public void subtractHealth(int amount)
 	{
 		Health -= amount;
+
+		EmitSignal(SignalName.PlayerHealthChanged, Health);
+
 		if (Health <= 0)
 		{
+			EmitSignal(SignalName.PlayerDied);
 			Explotion explotion = ExplosionScene.Instantiate<Explotion>();
 			explotion.Position = Position;
 			GetParent().AddChild(explotion);
@@ -55,6 +64,7 @@ public partial class PlayerShip : CharacterBody2D
 	}
 	public override void _Ready()
 	{
+		EmitSignal(SignalName.PlayerHealthChanged, Health);
 		screenSize = GetViewportRect().Size;
 	}
 

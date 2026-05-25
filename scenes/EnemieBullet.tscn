@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://dmxrmpg3wwy8h"]
 
 [ext_resource type="PackedScene" uid="uid://sfbijsmp2kxa" path="res://scenes/Bullet.tscn" id="1_vff77"]
+[ext_resource type="Texture2D" uid="uid://dvshswid4eq0u" path="res://assets/enemies/laser_enemy.png" id="2_b81t2"]
+[ext_resource type="AudioStream" uid="uid://kabi2fu4wr6t" path="res://audios/shot/laser_shot_enemy_2.wav" id="3_b81t2"]
 
 [node name="Bullet" unique_id=703869155 instance=ExtResource("1_vff77")]
 collision_layer = 8
+
+[node name="Sprite2D" parent="." index="0" unique_id=48770610]
+texture = ExtResource("2_b81t2")
+
+[node name="ShotSound" parent="." index="3" unique_id=1339853093]
+stream = ExtResource("3_b81t2")
+volume_db = -50.0

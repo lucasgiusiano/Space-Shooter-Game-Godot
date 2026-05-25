@@ -7,8 +7,8 @@
 points = PackedVector2Array(32, -24, 0, 48, -32, -24)
 
 [node name="EnemieShip" unique_id=1156344873 instance=ExtResource("1_ncf3u")]
-Speed = 100.0
-FireRate = 1
+Speed = 70.0
+FireRate = 0.5
 Health = 1
 
 [node name="Sprite2D" parent="." index="0" unique_id=766267343]

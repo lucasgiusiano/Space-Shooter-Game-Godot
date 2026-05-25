@@ -3,13 +3,13 @@ using System;
 
 public partial class Bullet : Area2D
 {
-
 	[Export]
 	public int Speed { get; set; } = 500;
 
 	public Vector2 targetDirection { get; set; }
 
-	[Export] public bool IsPlayerBullet { get; set; } = false;
+	[Export]
+	public bool IsPlayerBullet { get; set; } = false;
 
 	public void onHit(Node body)
 	{
@@ -24,10 +24,15 @@ public partial class Bullet : Area2D
 		QueueFree();
 	}
 
+	public void OnShot()
+	{
+		GetNode<AudioStreamPlayer2D>("ShotSound").Play();
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		OnShot();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -5,17 +5,370 @@
 [ext_resource type="PackedScene" uid="uid://csl41ifqu0oj" path="res://scenes/EnemieShipLight.tscn" id="2_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://d2484ym0gdgo5" path="res://scenes/EnemieShipMedium.tscn" id="3_c01mt"]
 [ext_resource type="PackedScene" uid="uid://bc04bhmm7hxud" path="res://scenes/EnemieShipHeavy.tscn" id="4_nxtc6"]
+[ext_resource type="AudioStream" uid="uid://dwtn4llxj2jvb" path="res://audios/soundTrack/level_1.wav" id="5_qmy6f"]
+[ext_resource type="Script" uid="uid://r56m083jpal3" path="res://scripts/HUD.cs" id="6_nxtc6"]
+[ext_resource type="AudioStream" uid="uid://cxer3lakhivvl" path="res://audios/soundTrack/level_2.wav" id="6_qmy6f"]
+[ext_resource type="FontFile" uid="uid://d2q52yuj418qc" path="res://fonts/Orbitron-VariableFont_wght.ttf" id="7_jlsqs"]
+[ext_resource type="AudioStream" uid="uid://cd8ubbia46so1" path="res://audios/soundTrack/level_3.wav" id="7_mwfav"]
+[ext_resource type="Texture2D" uid="uid://bb45potojpsbo" path="res://assets/hud/heart_full.png" id="7_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://1jlth7x1xyo3" path="res://assets/hud/heart_empty.png" id="8_lhr70"]
+[ext_resource type="AudioStream" uid="uid://b6iwas8hwkp73" path="res://audios/levelUp/levelup_reached_long.wav" id="8_mwfav"]
+[ext_resource type="AudioStream" uid="uid://crlr32gnovdwb" path="res://audios/soundTrack/intro.wav" id="10_lhr70"]
+[ext_resource type="Script" uid="uid://difonjpyw5teg" path="res://scripts/GameOverScreen.cs" id="15_cvmbd"]
+[ext_resource type="AudioStream" uid="uid://cgg2e8mi7811r" path="res://audios/gamerOver/gameover_long.wav" id="16_ft6cd"]
+[ext_resource type="AudioStream" uid="uid://dpidoast0ywlx" path="res://audios/soundTrack/gameover_music_2.wav" id="17_ft6cd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8u5g"]
+bg_color = Color(0.22745098, 0.22745098, 0.22745098, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhr70"]
+bg_color = Color(0, 1, 1, 0.26666668)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp0k4"]
+bg_color = Color(0, 1, 1, 0.13333334)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mwfav"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3p2gp"]
+bg_color = Color(0, 1, 1, 0.26666668)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvmbd"]
+bg_color = Color(0, 1, 1, 0.13333334)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ft6cd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bb450"]
+bg_color = Color(0, 1, 1, 0.26666668)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nfivy"]
+bg_color = Color(0, 1, 1, 0.13333334)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nqs0"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1iba3"]
+bg_color = Color(1, 0.26666668, 0.26666668, 0.26666668)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.4, 0.4, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxlcp"]
+bg_color = Color(1, 0.26666668, 0.26666668, 0.13333334)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.26666668, 0.26666668, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [node name="Main" type="Node" unique_id=787665208]
 script = ExtResource("1_rvslj")
 EnemyLightScene = ExtResource("2_vcsgt")
 EnemyMediumScene = ExtResource("3_c01mt")
 EnemyHeavyScene = ExtResource("4_nxtc6")
+EnemyLightSpawnRate = 3.0
+EnemyMediumSpawnRate = 4.0
+EnemyHeavySpawnRate = 6.0
+Level2Threshold = 30
+Level3Threshold = 50
+Music1 = ExtResource("5_qmy6f")
+Music2 = ExtResource("6_qmy6f")
+Music3 = ExtResource("7_mwfav")
+LevelUpSound = ExtResource("8_mwfav")
 
 [node name="PlayerShip" parent="." unique_id=1781047502 instance=ExtResource("1_elqb8")]
+position = Vector2(640, 384)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=501215943]
+script = ExtResource("6_nxtc6")
+FullHeartTexture = ExtResource("7_q8u5g")
+EmptyHeartTexture = ExtResource("8_lhr70")
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=1946272019]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 50.0
+offset_right = 80.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_jlsqs")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TimerLight" type="Timer" parent="." unique_id=881625463]
 
 [node name="TimerMedium" type="Timer" parent="." unique_id=787145783]
 
 [node name="TimerHeavy" type="Timer" parent="." unique_id=511057807]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1016499433]
+z_index = -1
+position = Vector2(640, -96)
+amount = 300
+lifetime = 30.0
+preprocess = 60.0
+emission_shape = 3
+emission_rect_extents = Vector2(640, 10)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 2)
+initial_velocity_max = 10.0
+scale_amount_min = 0.5
+scale_amount_max = 3.0
+
+[node name="GameMusic" type="AudioStreamPlayer2D" parent="." unique_id=576644721]
+volume_db = -30.0
+
+[node name="LevelUpSound" type="AudioStreamPlayer2D" parent="." unique_id=1822702897]
+volume_db = -40.0
+
+[node name="StartScreen" type="CanvasLayer" parent="." unique_id=474587335]
+
+[node name="TitleLabel" type="Label" parent="StartScreen" unique_id=1859221509]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -165.0
+offset_top = 200.0
+offset_right = 165.0
+offset_bottom = 251.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("7_jlsqs")
+theme_override_font_sizes/font_size = 60
+text = "Space Shooter"
+
+[node name="Button" type="Button" parent="StartScreen" unique_id=1773225169]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.5
+offset_top = 154.0
+offset_right = 115.5
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0.53333336, 0.6666667, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_jlsqs")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_q8u5g")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_lhr70")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wp0k4")
+text = "Play"
+
+[node name="AudioIntro" type="AudioStreamPlayer2D" parent="StartScreen" unique_id=32184925]
+stream = ExtResource("10_lhr70")
+volume_db = -20.0
+autoplay = true
+
+[node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=733840929]
+script = ExtResource("15_cvmbd")
+
+[node name="GaveOverLabel" type="Label" parent="GameOverScreen" unique_id=1189109245]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -280.5
+offset_top = 200.0
+offset_right = 280.5
+offset_bottom = 313.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.5568628, 0, 0, 0.95686275)
+theme_override_colors/font_shadow_color = Color(0.6160995, 0.6160995, 0.6160995, 1)
+theme_override_fonts/font = ExtResource("7_jlsqs")
+theme_override_font_sizes/font_size = 90
+text = "Game Over"
+
+[node name="MaxScoreLabel" type="Label" parent="GameOverScreen" unique_id=891160477]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -11.5
+offset_right = 48.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_jlsqs")
+text = "Max Score: 0"
+
+[node name="RetryButton" type="Button" parent="GameOverScreen" unique_id=255214099]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = 150.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_mwfav")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3p2gp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cvmbd")
+text = "¡Try Again!"
+
+[node name="MenuButton" type="Button" parent="GameOverScreen" unique_id=1989370004]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -99.5
+offset_right = 64.0
+offset_bottom = -52.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_jlsqs")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ft6cd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bb450")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nfivy")
+text = "Menu"
+
+[node name="ExitButton" type="Button" parent="GameOverScreen" unique_id=227234412]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -23.5
+offset_top = -41.0
+offset_right = 23.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0.26666668, 0.26666668, 1)
+theme_override_fonts/font = ExtResource("7_jlsqs")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1nqs0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1iba3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxlcp")
+text = "Exit"
+
+[node name="GameOverAudio" type="AudioStreamPlayer2D" parent="GameOverScreen" unique_id=1033362790]
+stream = ExtResource("16_ft6cd")
+volume_db = -30.0
+
+[node name="GameOverMusic" type="AudioStreamPlayer2D" parent="GameOverScreen" unique_id=391160382]
+stream = ExtResource("17_ft6cd")
+volume_db = -20.0
+
+[connection signal="PlayerDied" from="PlayerShip" to="." method="GameOver"]
+[connection signal="PlayerHealthChanged" from="PlayerShip" to="." method="HandleHeartsChange"]
+[connection signal="pressed" from="StartScreen/Button" to="." method="NewGame"]
+[connection signal="pressed" from="GameOverScreen/RetryButton" to="." method="OnRetryButtonPressed"]
+[connection signal="pressed" from="GameOverScreen/MenuButton" to="." method="OnMenuButtonPressed"]
+[connection signal="pressed" from="GameOverScreen/ExitButton" to="." method="OnQuitButtonPressed"]

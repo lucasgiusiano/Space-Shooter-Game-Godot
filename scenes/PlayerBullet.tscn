@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://sfbijsmp2kxa" path="res://scenes/Bullet.tscn" id="1_ln8bq"]
 [ext_resource type="Texture2D" uid="uid://b4j304blce6v8" path="res://assets/playerShip/laser_player.png" id="2_o5v3t"]
+[ext_resource type="AudioStream" uid="uid://bkny1e0oc1a7x" path="res://audios/shot/laser_shot.wav" id="3_871ai"]
 
 [node name="Bullet" unique_id=703869155 instance=ExtResource("1_ln8bq")]
 collision_layer = 4
@@ -10,3 +11,7 @@ IsPlayerBullet = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=48770610]
 texture = ExtResource("2_o5v3t")
+
+[node name="ShotSound" parent="." index="3" unique_id=1339853093]
+stream = ExtResource("3_871ai")
+volume_db = -50.0
