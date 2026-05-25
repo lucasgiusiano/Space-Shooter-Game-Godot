@@ -21,4 +21,5 @@ shape = SubResource("SegmentShape2D_2ropf")
 position = Vector2(7.9999995, -16)
 rect = Rect2(-10, 0, 4, 35)
 
+[connection signal="body_entered" from="." to="." method="onHit"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onHit"]

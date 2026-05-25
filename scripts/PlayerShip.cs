@@ -3,11 +3,15 @@ using Godot;
 public partial class PlayerShip : CharacterBody2D
 {
 	[Export]
+	public PackedScene ExplosionScene { get; set; }
+	[Export]
 	public int Speed { get; set; } = 400;
 	[Export]
 	public double inertia { get; set; } = 2;
 	[Export]
 	public PackedScene BulletScene { get; set; }
+	[Export]
+	public int Health { get; set; } = 3;
 
 	private Vector2 screenSize;
 
@@ -38,6 +42,17 @@ public partial class PlayerShip : CharacterBody2D
 		}
 	}
 
+	public void subtractHealth(int amount)
+	{
+		Health -= amount;
+		if (Health <= 0)
+		{
+			Explotion explotion = ExplosionScene.Instantiate<Explotion>();
+			explotion.Position = Position;
+			GetParent().AddChild(explotion);
+			QueueFree();
+		}
+	}
 	public override void _Ready()
 	{
 		screenSize = GetViewportRect().Size;

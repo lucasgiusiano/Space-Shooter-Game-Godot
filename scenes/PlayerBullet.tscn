@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b4j304blce6v8" path="res://assets/playerShip/laser_player.png" id="2_o5v3t"]
 
 [node name="Bullet" unique_id=703869155 instance=ExtResource("1_ln8bq")]
+collision_layer = 4
+collision_mask = 2
+IsPlayerBullet = true
 
 [node name="Sprite2D" parent="." index="0" unique_id=48770610]
 texture = ExtResource("2_o5v3t")

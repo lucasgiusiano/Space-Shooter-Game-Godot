@@ -3,8 +3,13 @@ using System;
 
 public partial class EnemieShip : CharacterBody2D
 {
+	[Export]
+	public PackedScene ExplosionScene { get; set; }
+	[Export]
 	public float Speed = 0;
+	[Export]
 	public int FireRate = 0;
+	[Export]
 	public int Health = 0;
 
 	public void trackPlayer()
@@ -15,6 +20,18 @@ public partial class EnemieShip : CharacterBody2D
 			LookAt(player.Position);
 			Velocity = (player.Position - Position).Normalized() * Speed;
 			MoveAndSlide();
+		}
+	}
+
+	public void subtractHealth(int amount)
+	{
+		Health -= amount;
+		if (Health <= 0)
+		{
+			Explotion explotion = ExplosionScene.Instantiate<Explotion>();
+			explotion.Position = Position;
+			GetParent().AddChild(explotion);
+			QueueFree();
 		}
 	}
 

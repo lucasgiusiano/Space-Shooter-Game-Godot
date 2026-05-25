@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://xyfvvqwrgya4"]
 
-[ext_resource type="Script" uid="uid://bwjp1j7a7o3co" path="res://scenes/EnemieShip.cs" id="1_1vpay"]
+[ext_resource type="Script" uid="uid://u86gbshwhtup" path="res://scripts/EnemieShip.cs" id="1_1vpay"]
+[ext_resource type="PackedScene" uid="uid://c7gy1i1dy3lj6" path="res://scenes/Explotion.tscn" id="2_6ihsl"]
 
 [node name="EnemieShip" type="CharacterBody2D" unique_id=1156344873]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
 script = ExtResource("1_1vpay")
+ExplosionScene = ExtResource("2_6ihsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=766267343]
+rotation = -1.5707964
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1550565183]
+rotation = -1.5707964

@@ -2,10 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://bdykrylaq0le2" path="res://scenes/PlayerShip.tscn" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://ihfcirhq0gvg" path="res://scripts/Main.cs" id="1_rvslj"]
+[ext_resource type="PackedScene" uid="uid://csl41ifqu0oj" path="res://scenes/EnemieShipLight.tscn" id="2_vcsgt"]
+[ext_resource type="PackedScene" uid="uid://d2484ym0gdgo5" path="res://scenes/EnemieShipMedium.tscn" id="3_c01mt"]
+[ext_resource type="PackedScene" uid="uid://bc04bhmm7hxud" path="res://scenes/EnemieShipHeavy.tscn" id="4_nxtc6"]
 
 [node name="Main" type="Node" unique_id=787665208]
 script = ExtResource("1_rvslj")
+EnemyLightScene = ExtResource("2_vcsgt")
+EnemyMediumScene = ExtResource("3_c01mt")
+EnemyHeavyScene = ExtResource("4_nxtc6")
 
 [node name="PlayerShip" parent="." unique_id=1781047502 instance=ExtResource("1_elqb8")]
 
-[node name="OnSpawnEnemiesTimer" type="Timer" parent="." unique_id=881625463]
+[node name="TimerLight" type="Timer" parent="." unique_id=881625463]
+
+[node name="TimerMedium" type="Timer" parent="." unique_id=787145783]
+
+[node name="TimerHeavy" type="Timer" parent="." unique_id=511057807]
