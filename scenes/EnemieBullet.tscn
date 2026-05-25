@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://dmxrmpg3wwy8h"]
+
+[ext_resource type="PackedScene" uid="uid://sfbijsmp2kxa" path="res://scenes/Bullet.tscn" id="1_vff77"]
+
+[node name="Bullet" unique_id=703869155 instance=ExtResource("1_vff77")]

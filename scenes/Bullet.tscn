@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://sfbijsmp2kxa"]
+
+[ext_resource type="Script" uid="uid://dlbfvnciyempm" path="res://scripts/Bullet.cs" id="1_hf8mt"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2ropf"]
+a = Vector2(0, -24)
+
+[node name="Bullet" type="Area2D" unique_id=703869155]
+rotation = 1.5707964
+scale = Vector2(1, 0.5)
+script = ExtResource("1_hf8mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=48770610]
+scale = Vector2(0.3, 0.3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=585063306]
+position = Vector2(0, 8)
+shape = SubResource("SegmentShape2D_2ropf")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=315905084]
+position = Vector2(7.9999995, -16)
+rect = Rect2(-10, 0, 4, 35)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="onHit"]

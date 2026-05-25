@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bdykrylaq0le2"]
+
+[ext_resource type="Script" uid="uid://cuqe1thb0wyuh" path="res://scripts/PlayerShip.cs" id="1_hkka0"]
+[ext_resource type="Texture2D" uid="uid://c7hyxkgleptu7" path="res://assets/playerShip/player_mk1.png" id="1_iig01"]
+[ext_resource type="PackedScene" uid="uid://deb5hmcv558dq" path="res://scenes/PlayerBullet.tscn" id="2_a884r"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_a884r"]
+points = PackedVector2Array(0, -56, 24, -8, 32, 48, -32, 48, -24, -8)
+
+[node name="PlayerShip" type="CharacterBody2D" unique_id=1781047502]
+position = Vector2(680, 360)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_hkka0")
+BulletScene = ExtResource("2_a884r")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1072474138]
+rotation = 1.5707964
+texture = ExtResource("1_iig01")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1233096809]
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_a884r")

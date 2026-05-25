@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bc04bhmm7hxud"]
+
+[ext_resource type="PackedScene" uid="uid://xyfvvqwrgya4" path="res://scenes/EnemieShip.tscn" id="1_teqw6"]
+[ext_resource type="Texture2D" uid="uid://ds7vc2fefv4b1" path="res://assets/enemies/enemy_c1.png" id="2_0tsif"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_0tsif"]
+points = PackedVector2Array(48, -28, 48, 16, 0, 52, -48, 16, -49, -28, -8, -48, 8, -48)
+
+[node name="EnemieShip" unique_id=1156344873 instance=ExtResource("1_teqw6")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=766267343]
+texture = ExtResource("2_0tsif")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1550565183]
+shape = SubResource("ConvexPolygonShape2D_0tsif")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://xyfvvqwrgya4"]
+
+[ext_resource type="Script" uid="uid://bwjp1j7a7o3co" path="res://scenes/EnemieShip.cs" id="1_1vpay"]
+
+[node name="EnemieShip" type="CharacterBody2D" unique_id=1156344873]
+script = ExtResource("1_1vpay")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=766267343]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1550565183]
